@@ -1,0 +1,119 @@
+; ========================================================================
+; Replace placeholders (Your Name / you@example.com)
+; Uncomment signingkey / gpgSign if you use GPG commit signing
+; Customize tools (editor, mergetool, difftool) to your preference
+; ========================================================================
+
+[user]
+	name = Your Name
+	email = you@example.com
+	; signingkey = ABCDEF0123456789    ; set to your GPG key ID
+	; gpgSign = true                  ; uncomment to sign all commits
+
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+	autocrlf = input                  ; use 'true' on Windows if needed
+	safecrlf = true
+	precomposeunicode = true
+	; pager = less -FRX               ; optional: faster git log / diff navigation
+
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false                     ; set true if you prefer rebase by default
+	ff = only                           ; fast-forward only when merging
+
+[push]
+	default = simple
+
+[fetch]
+	prune = true                        ; remove remote-tracking branches that no longer exist
+
+[credential]
+	helper = manager-core              ; cross-platform credential manager
+	useHttpPath = true                  ; ensures credentials are path-specific
+
+[rerere]
+	enabled = true                      ; reuse recorded conflict resolutions
+
+[rebase]
+	autostash = true                    ; automatically stash before rebase
+
+[merge]
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = code --wait --merge $MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = false
+
+[diff]
+	tool = vscode
+	renames = copies                    ; track renamed files as copies
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[apply]
+	whitespace = fix
+
+[commit]
+	; gpgSign = true                    ; uncomment to sign all commits by default
+
+[gc]
+	auto = 1                             ; automatic git housekeeping
+
+[status]
+	showUntrackedFiles = all
+
+[alias]
+	; -------------------------------
+	; Basic convenience
+	; -------------------------------
+	st = status -sb
+	s = status -s
+	ci = commit
+	co = checkout
+	br = branch
+	df = diff
+	dff = difftool
+	mt = mergetool
+	unstage = reset HEAD --
+	last = log -1 HEAD
+
+	; -------------------------------
+	; Commit helpers
+	; -------------------------------
+	amend = commit --amend --no-edit
+	fixup = commit --fixup
+	wip = "!git add -A && git commit -m \"WIP\"" ; quick WIP commit
+
+	; -------------------------------
+	; Logs
+	; -------------------------------
+	lg = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset %C(cyan)%an%Creset %C(green)(%cr)%Creset %C(red)%d%Creset%n  %s' --abbrev-commit
+	lga = log --graph --all --decorate --oneline
+
+	; -------------------------------
+	; Branch / rebase helpers
+	; -------------------------------
+	rb = rebase
+	pr = "!f() { git fetch origin && git rebase origin/$(git symbolic-ref --short HEAD); }; f"
+
+	; -------------------------------
+	; Other handy commands
+	; -------------------------------
+	type = cat-file -t
+	dump = cat-file -p
+
+[include]
+	; Per-machine or sensitive config
+	; Create ~/.gitconfig.local for overrides or private info
+	path = ~/.gitconfig.local
