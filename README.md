@@ -1,2 +1,1 @@
-# .github
-.github
+> #### This repository contains my trusty configs.
