@@ -1,0 +1,9 @@
+{
+	"servers": {
+		// Strapi SSE stream
+		"strapi": {
+			"type": "sse",
+			"url": "http://localhost:1337/api/mcp/streamable",
+		}
+	}
+}
