@@ -5,5 +5,10 @@
 			"type": "sse",
 			"url": "http://localhost:1337/api/mcp/streamable",
 		}
+		// Nuxt UI MCP server
+		"nuxt-ui": {
+			"url": "https://ui.nuxt.com/mcp",
+			"type": "http"
+		}
 	}
 }
