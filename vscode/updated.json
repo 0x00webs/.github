@@ -457,6 +457,96 @@
     "js/ts.updateImportsOnFileMove.enabled": "always",
     "mssql.autoDisableNonTSqlLanguageService": true,
     "mssql.enableRichExperiences": true,
+    // NestJS
+    "nestjs.enable": true, // Enable or disable the extension
+    "nestjs.files.autoImport": true, // Automatically import the generated file
+    "nestjs.files.exclude": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/out/**",
+        "**/build/**",
+        "**/.*/**"
+    ], // Glob patterns of files or folders to exclude in the Sidebar Nest File Generator
+    "nestjs.files.include": [
+        "ts"
+    ], // The list of extensions to include in the Sidebar Nest File Generator
+    "nestjs.files.orm": "typeorm", // The ORM to use when generating a new file
+    "nestjs.files.showPath": true, // Show the path in the list of files in the Sidebar Nest File Generator
+    "nestjs.files.skipFolderConfirmation": false, // Skip folder confirmation when generating a new file
+    "nestjs.files.useRootWorkspace": false, // Use the root folder of the workspace as the current working directory to resolve relative paths
+    "nestjs.files.watch": [
+        "controllers",
+        "dtos",
+        "services"
+    ], // The list of types of files to watch in the Sidebar Nest File Generator
+    "nestjs.submenu.activateItem": {
+        "file": {
+            "class": true,
+            "controller": true,
+            "decorator": true,
+            "dto": true,
+            "exception": true,
+            "exceptionFilter": true,
+            "filter": true,
+            "gateway": true,
+            "guard": true,
+            "interceptor": true,
+            "interface": true,
+            "jwtGuard": true,
+            "jwtStrategy": true,
+            "logger": true,
+            "middleware": true,
+            "module": true,
+            "pipe": true,
+            "provider": true,
+            "resolver": true,
+            "service": true,
+            "template": true,
+            "test": true
+        },
+        "terminal": {
+            "controller": true,
+            "custom": true,
+            "gateway": true,
+            "library": true,
+            "module": true,
+            "provider": true,
+            "resolver": true,
+            "resource": true,
+            "service": true,
+            "start": true,
+            "startDebug": true,
+            "startDev": true,
+            "startProd": true
+        }
+    }, // Activate items in the submenu
+    "nestjs.submenu.customCommands": [
+        {
+            "args": "--flat",
+            "command": "nest g co",
+            "name": "Template 1"
+        },
+        {
+            "args": "--no-flat",
+            "command": "nest g co",
+            "name": "Template 2"
+        }
+    ], // The list of custom commands to execute in the custom command submenu
+    "nestjs.submenu.templates": [
+        {
+            "description": "Description of Template 1",
+            "name": "Template 1",
+            "template": [
+                "import { Controller } from '@nestjs/common';",
+                "",
+                "@Controller('template1')",
+                "export class Template1Controller {",
+                "}"
+            ],
+            "type": "class"
+        }
+    ], // The list of templates to use when generating a new file
+    "nestjs.terminal.cwd": "/path/to/your/project", // Sets the current working directory for the terminal
     "prettier.arrowParens": "always",
     "prettier.bracketSameLine": true,
     "prettier.bracketSpacing": true,
@@ -714,7 +804,7 @@
     // ***********************
     // ** WINDOWS SETTINGS **
     // ***********************
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "window.zoomPerWindow": true,
     "workbench.commandPalette.experimental.suggestCommands": true,
     "workbench.commandPalette.preserveInput": true,
